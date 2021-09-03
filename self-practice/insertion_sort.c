@@ -16,8 +16,8 @@ void insertion_sort(int arr[], const size_t n) {
 int main() {
 	printf("Enter numbers (0 - terminating):\n");
 
-	size_t n = 0, size = 8 * sizeof(int);
-	int *nums = malloc(size);
+	size_t n = 0, size = 8;
+	int *nums = malloc(size * sizeof(int));
 	if (nums == NULL) {
 		printf("Memory error!\n");
 		exit(1);
@@ -29,8 +29,8 @@ int main() {
 	while (i) {
  		scanf("%d", &i);
 		if (n >= size - 1) {
-			size += 8 * sizeof(int);
-			nums = realloc(nums, size);
+			size += 8;
+			nums = realloc(nums, size * sizeof(int));
 			if (nums == NULL) {
 				printf("Memory error!\n");
 				exit(1);
