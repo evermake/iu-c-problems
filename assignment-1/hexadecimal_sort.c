@@ -6,13 +6,18 @@
 #define OUTPUT_FILE_PATH "output.txt" 
 
 
+void swap(int *arr, size_t a, size_t b) {
+  int tmp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = tmp;
+}
+
+
 void sort(int *arr, size_t *len) {
   for (size_t i = 1; i < *len; ++i) {
     size_t k = i;
     while (k > 0 && arr[k-1] > arr[k]) {
-      int tmp = arr[k-1];
-      arr[k-1] = arr[k];
-      arr[k] = tmp;
+      swap(arr, k, k - 1);
       --k;
     }
   }
@@ -60,5 +65,7 @@ int main() {
   free(nums);
   fclose(fi);
   fclose(fo);
+
+  return 0;
 }
 
