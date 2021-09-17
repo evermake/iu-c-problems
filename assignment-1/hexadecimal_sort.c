@@ -13,11 +13,11 @@ void swap(int *arr, size_t a, size_t b) {
 }
 
 
-void sort(int *arr, size_t *len) {
-  for (size_t i = 1; i < *len; ++i) {
+void sort(int *arr, size_t len) {
+  /* Insertion sort. */
+  for (size_t i = 1; i < len; ++i)
     for (size_t k = i; k > 0 && arr[k-1] > arr[k]; --k)
       swap(arr, k, k - 1);
-  }
 }
 
 
@@ -51,7 +51,7 @@ int main() {
   // on the last fscanf failed try of getting number.
   --len;
 
-  sort(nums, &len);
+  sort(nums, len);
 
   // Write to output file
   for (size_t i = 0; i < len; ++i) {
