@@ -15,11 +15,8 @@ void swap(int *arr, size_t a, size_t b) {
 
 void sort(int *arr, size_t *len) {
   for (size_t i = 1; i < *len; ++i) {
-    size_t k = i;
-    while (k > 0 && arr[k-1] > arr[k]) {
+    for (size_t k = i; k > 0 && arr[k-1] > arr[k]; --k)
       swap(arr, k, k - 1);
-      --k;
-    }
   }
 }
 
